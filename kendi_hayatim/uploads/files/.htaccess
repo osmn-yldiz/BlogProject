@@ -1,0 +1,15 @@
+#Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^(.*)?$ ../../admin/download.php?url=$1 [QSA,L]
+
+Options -Indexes
+
+<FilesMatch "\.(htpasswd|ini|fla|log|sh|exe|pl|jsp|asp|htm|sh|cgi|py|php|phps|php3|php4|php5|phtml)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+<IfModule php5_module>
+    php_flag engine off
+</IfModule>
